@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lesson 30 - Практикуем UI компоненты</title>
+        <style>
+            header {
+                margin-bottom: 30px;
+            }
+
+            .card-container {
+                background-color: lightgray;
+                border-radius: 20px;
+                padding: 30px;
+                max-width: 25%;
+
+            }
+
+            .card-title {
+                font-size: 24px;
+                font-weight: bold;
+
+            }
+
+            .card-description {
+                font-style: italic;
+                color: green;
+            }
+
+            .card-button {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+
+            .card-list {
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
+                flex-wrap: wrap;
+                margin-bottom: 50px;
+            }
+
+            span {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header-container">
+
+        </div>
+
+        <data class="card-list">
+        </data>
+
+        <hello-world></hello-world>
+
+        <button is="fancy-button">Modified button</button>
+        <button>Default button</button>
+
+        <input type="range">
+
+        <shadow-tree name="Mike"></shadow-tree>
+
+        <user-card>
+            <span slot="username">Mike</span>
+            <span slot="birthday">04.11.199</span>
+        </user-card>
+
+        <template id="tmpl">
+            <style>p { color: red }</style>
+            <p id="message"></p>
+        </template>
+
+        <div id="button">Нажми на меня</div>
+
+        <script src="./card.js"></script>
+        <script src="./header.js"></script>
+        <script src="./hello-world.js"></script>
+        <script src="./fancy-button.js"></script>
+        <script src="./slot.js"></script>
+        <script src="./element-template.js"></script>
+        <script>
+            const newCard = new Card('Товар 1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem excepturi numquam, obcaecati ducimus ab id, maxime assumenda cumque vel vero reprehenderit. Autem porro ipsam nisi! Alias aspernatur tempore veritatis fugit?');
+
+            newCard.render('.card-list');
+
+            const newCard2 = new Card('Товар 2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem excepturi numquam, obcaecati ducimus ab id, maxime assumenda cumque vel vero reprehenderit. Autem porro ipsam nisi! Alias aspernatur tempore veritatis fugit?');
+
+            newCard2.render('.card-list');
+
+            const newCard3 = new Card('Товар 3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem excepturi numquam, obcaecati ducimus ab id, maxime assumenda cumque vel vero reprehenderit. Autem porro ipsam nisi! Alias aspernatur tempore veritatis fugit?');
+
+            newCard3.render('.card-list');
+            const newHeader = new Header('Main title', [
+                {'text': "Home", link: "#"},
+                {'text': "About", link: "#"},
+                {'text': "Contact", link: "#"}]
+                );
+
+                newHeader.render('#header-container');
+        </script>
+    </body>
+</html>
